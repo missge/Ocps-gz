@@ -1,0 +1,265 @@
+<template>
+  <div>
+    <div class="header">
+      <div class="left" @click="goback"><</div>
+      <div class="title">交易记录</div>
+      <div class="right" @click="filterFn">筛选</div>
+    </div>
+    <div class="content">
+        <div class="ocps-Transaction-titile">
+          <div class="ocps-Transaction-titile-lf">
+            <span class="year">{{timeInfo.year}}年{{timeInfo.month}}月</span>
+          </div>
+          <div class="ocps-Transaction-titile-rt">
+            <date-picker :date="date" v-on:changedate="pickerFn"></date-picker>
+          </div>
+        </div>
+        <div class="ocps-Transaction-titile">
+          <div class="spending-lf">
+            支出￥{{pay_money}}
+          </div>
+          <div class="spending-rt">
+           收入￥{{income_money}}
+          </div>
+
+        </div>
+          <ul>
+              <li class="ocps-consumer-box"  v-for="(items,index) in datalist" >
+                <div  @click="Record_detailsFn(items.tradeId)">
+                  <div class="ocps-consumer-lf" >
+                    <p class="ocps-consumer-Explain" v-if="items.tradeType == 2"> 消费</p>
+                    <p class="ocps-consumer-Explain" v-if="items.tradeType == 6"> 充值</p>
+                    <p class="ocps-consumer-Explain" v-if="items.tradeType == 14"> 退货</p>
+                    <p class="ocps-consumer-Explain" v-if="items.tradeType == 15"> 转出</p>
+                    <p class="ocps-consumer-Explain" v-if="items.tradeType == 16"> 转入</p>
+                    <p class="ocps-consumer-time"> {{items.updateTime}} </p>
+                  </div>
+                  <div class="ocps-consumner-rt" v-if="items.tradeType == 6 || items.tradeType == 16 || items.tradeType == 14" >
+                    +{{items.tradeAmount}}
+                  </div>
+                  <div class="ocps-consumner-rt" v-if="items.tradeType == 2 || items.tradeType == 15" >
+                    -{{items.tradeAmount}}
+                  </div>
+                </div>
+              </li>
+          </ul >
+          <div class="ocps-filter" v-show="!show">
+              <div class="ocps-filter-title ocps-grid_align-spread grid_vertical-align-center" >
+                   <p class="ocps-filter-title-type">请选择交易类型</p>
+                   <p class="ocps-filter-title-cancel"  @click="filterFn" >取消</p>
+              </div>
+             <div class="ocps-filter-boxs">
+               <div class="ocps-shoppCard">
+                <div class="ocps-row">
+                  <div class="ocps-col-xs-4">
+                    <div class=" ocps-div_btn ocps-change-on" @click="tradeTypeFn('')"> 全部 </div>
+                  </div>
+                  <div class="ocps-col-xs-4">
+                    <div class=" ocps-div_btn" @click="tradeTypeFn('CRD')"> 消费 </div>
+                  </div>
+                  <div class="ocps-col-xs-4">
+                    <div class="ocps-div_btn" @click="tradeTypeFn('CCD')"> 充值 </div>
+                  </div>
+                  <div class="ocps-col-xs-4">
+                    <div class=" ocps-div_btn" @click="tradeTypeFn('PRF')"> 退货 </div>
+                  </div>
+                  <div class="ocps-col-xs-4">
+                    <div class=" ocps-div_btn" @click="tradeTypeFn('TFO')"> 转出 </div>
+                  </div>
+                  <div class="ocps-col-xs-4">
+                    <div class=" ocps-div_btn" @click="tradeTypeFn('TFI')"> 转入 </div>
+                  </div>
+               </div>
+            </div>
+              </div>
+          </div>
+        <div  @click="nextPage" v-if="ret" class="nextpage">下一页</div>
+    </div>
+  </div>
+</template>
+<script>
+  import myDatepicker from '@/datepicker/datepicker.vue'
+  import qs from 'qs'
+  import router from '@/router'
+  export default{
+    name: 'TransactionRecord',
+    data () {
+      return{
+        show:'false',
+        RecordInfo:{
+          tradeType:'',
+          loginUser: this.$store.state.loginUserId,
+          flag:this.$store.state.flag,
+          month:'',
+          date:'',
+          page:'1'
+        },
+        datalist:'',
+        pay_money: '',
+        income_money: '',
+        date: {
+          month: ''
+        },
+        timeInfo:{
+          month: this.$store.state.TransactionRecord.month,
+          year:this.$store.state.TransactionRecord.year
+        },
+        ret:this.$store.state.TransactionRecord.ret
+      }
+    },
+    computed: {
+
+    },
+    components: {
+      'date-picker': myDatepicker
+    },
+    methods: {
+      goback () {
+        this.$router.goBack()
+      },
+      init () {
+        this.datalist=this.$store.state.TransactionRecord.result
+        this.pay_money=this.$store.state.TransactionRecord.pay_money
+        this.income_money=this.$store.state.TransactionRecord.income_money
+        //        年月日
+        this.month = this.$store.state.TransactionRecord.month
+        this.year = this.$store.state.TransactionRecord.year
+      },
+      Record_detailsFn:function (tradeId){
+        console.log(tradeId)
+        var url=this.$store.state.localHostUrl + '/getRecordDetail.json'
+        var formData = qs.stringify({orderId:tradeId})
+        var that=this
+        this.$http.post(url, formData, {emulateJSON: true}).then(
+          function (res){
+            if(res.data.ret){
+             var res = res.data.map[0]
+              router.push({path:'/DetailInquiry',query:{orderId:tradeId,res:res}})
+            }else{
+              alert(res.data.tip)
+            }
+          }
+        )
+      },
+      filterFn:function () {
+        this.show=!this.show
+      },
+      tradeTypeFn:function (val) {
+        this.show=!this.show
+        this.RecordInfo.tradeType=val
+        this.RecordInfo.page ='1'
+        var  Formdata = qs.stringify(this.RecordInfo)
+        var url=this.$store.state.localHostUrl+'/getRecord.json'
+        var that=this
+        this.$http.post(url, Formdata, {emulateJSON: true}).then(
+          function(res){
+            console.log(res.data)
+            if(res.data.ret){
+              that.ret= res.data.ret
+              that.datalist = res.data.map
+              var income_money = 0;
+              var pay_money = 0;
+              var type;
+              for(var i=0;i<res.data.map.length;i++){
+                type=res.data.map[i].tradeType
+                if(type === 6 || type === 16 || type === 14){
+                  income_money +=res.data.map[i].tradeAmount
+                }
+                if(type === 2 || type === 15){
+                  pay_money +=res.data.map[i].tradeAmount
+                }
+              }
+              that.income_money = income_money
+              that.pay_money = pay_money
+              alert(res.data.tip)
+            }else{
+              that.datalist=''
+              that.ret= res.data.ret
+              alert(res.data.tip)
+              return
+            }
+          }
+        )
+      },
+      nextPage: function () {
+        this.RecordInfo.page = (parseInt(this.RecordInfo.page)+1)+''
+        var  Formdata = qs.stringify(this.RecordInfo)
+         console.log(Formdata)
+        var url=this.$store.state.localHostUrl+'/getRecord.json'
+        var that=this
+        this.$http.post(url, Formdata, {emulateJSON: true}).then(
+          function(res){
+            console.log(res.data.ret)
+           that.ret= res.data.ret
+            if(res.data.ret){
+              // that.datalist = res.data.map
+              var income_money = 0;
+              var pay_money = 0;
+              var type;
+              for(var i=0;i<res.data.map.length;i++){
+                that.datalist.push(res.data.map[i])
+                type=res.data.map[i].tradeType
+                if(type === 6 || type === 16 || type === 14){
+                  income_money +=res.data.map[i].tradeAmount
+                }
+                if(type === 2 || type === 15){
+                  pay_money +=res.data.map[i].tradeAmount
+                }
+              }
+              that.income_money += income_money
+              that.pay_money += pay_money
+            }else{
+              that.income_money = 0
+              that.pay_money = 0
+              that.ret= res.data.ret
+              return
+            }
+          }
+        )
+      },
+      pickerFn: function (){
+       console.log(this.date.month)
+        this.timeInfo.month = this.date.month.split("-")[1]
+       this.RecordInfo.tradeType=''
+       this.RecordInfo.page ='1'
+       this.RecordInfo.month =this.date.month
+       var  Formdata = qs.stringify(this.RecordInfo)
+       var url=this.$store.state.localHostUrl+'/getRecord.json'
+       var that=this
+       this.$http.post(url, Formdata, {emulateJSON: true}).then(
+         function(res){
+           console.log(res.data)
+           if(res.data.ret){
+             that.datalist = res.data.map
+             var income_money = 0;
+             var pay_money = 0;
+             var type;
+             for(var i=0;i<res.data.map.length;i++){
+               type=res.data.map[i].tradeType
+               if(type === 6 || type === 16 || type === 14){
+                 income_money +=res.data.map[i].tradeAmount
+               }
+               if(type === 2 || type === 15){
+                 pay_money +=res.data.map[i].tradeAmount
+               }
+             }
+             that.income_money = income_money
+             that.pay_money = pay_money
+             alert(res.data.tip)
+           }else{
+             that.datalist=''
+             alert(res.data.tip)
+             return
+           }
+         }
+       )
+      }
+    },
+    mounted(){
+      this.init();
+    }
+  }
+</script>
+<style>
+
+</style>

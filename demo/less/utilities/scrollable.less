@@ -1,0 +1,49 @@
+/**
+ * @summary Forces element to scroll horizontally and vertically when content exceeds element's width and height
+ *
+ * @selector .ocps-scrollable
+ * @modifier
+ */
+.ocps-scrollable {
+  -webkit-overflow-scrolling: touch;
+  overflow: auto;
+}
+
+/**
+ * @summary Forces overflow items to not scroll within element's width and height
+ *
+ * @selector .ocps-scrollable_none
+ * @modifier
+ */
+.ocps-scrollable_none,
+.ocps-scrollable--none {
+  overflow: hidden;
+}
+
+/**
+ * @summary Forces element to scroll vertically when content exceeds element's height
+ *
+ * @selector .ocps-scrollable_y
+ * @modifier
+ */
+.ocps-scrollable_y,
+.ocps-scrollable--y {
+  -webkit-overflow-scrolling: touch;
+  max-height: 100%;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+/**
+ * @summary Forces element to scroll horizontally when content exceeds element's width
+ *
+ * @selector .ocps-scrollable_x
+ * @modifier
+ */
+.ocps-scrollable_x,
+.ocps-scrollable--x {
+  -webkit-overflow-scrolling: touch;
+  max-width: 100%;
+  overflow: hidden;
+  overflow-x: auto;
+}

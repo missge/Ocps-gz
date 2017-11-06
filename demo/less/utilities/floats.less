@@ -1,0 +1,52 @@
+/**
+ * @summary Contains floats and stops wrapping of elements following it.
+ *
+ * @name clearfix
+ * @selector .ocps-clearfix
+ * @modifier
+ */
+.ocps-clearfix:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.ocps-clear {
+  clear: both;
+}
+
+/**
+ * @summary Pulls element from document flow and floats left. Text and other elements wrap around it.
+ *
+ * @name float-left
+ * @selector .ocps-float_left
+ * @modifier
+ */
+.ocps-float_left,
+.ocps-float--left {
+  float: left;
+}
+
+/**
+ * @summary Removes float from an element that has attribute already
+ *
+ * @name float-none
+ * @selector .ocps-float_none
+ * @modifier
+ */
+.ocps-float_none,
+.ocps-float--none {
+  float: none;
+}
+
+/**
+ * @summary Pulls element from document flow and floats right. Text and other elements wrap around it.
+ *
+ * @name float-right
+ * @selector .ocps-float_right
+ * @modifier
+ */
+.ocps-float_right,
+.ocps-float--right {
+  float: right;
+}

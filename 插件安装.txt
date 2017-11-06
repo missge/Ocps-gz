@@ -1,0 +1,20 @@
+
+插件安装：npm install
+
+路由安装：npm install vue-router --save-dev
+
+axios安装：npm install axios --save-dev
+
+vuex安装：npm install vuex --save-dev
+
+弹框安装：npm i element-ui -S
+
+日历安装：npm install moment --save 
+
+二维码安装：npm install qrcode
+
+   npm install jsbarcode --save
+
+RSA安装：npm install node-rsa
+网页案例
+http://localhost:8088/?userid=111111&flag=0#/

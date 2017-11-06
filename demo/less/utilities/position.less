@@ -1,0 +1,63 @@
+/**
+ * @summary Reset positioning back to normal behavior
+ *
+ * @name static
+ * @selector .ocps-is-static
+ * @modifier
+ */
+.ocps-is-static {
+  position: static;
+}
+
+/**
+ * @summary Used to contain children if children are absolutely positioned and out of flow. Also used to position element without changing layout.
+ *
+ * @name relative
+ * @selector .ocps-is-relative
+ * @modifier
+ */
+.ocps-is-relative {
+  position: relative;
+}
+
+/**
+ * @summary Used to position an element relative to the viewport.
+ *
+ * @name fixed
+ * @selector .ocps-is-fixed
+ * @modifier
+ */
+.ocps-is-fixed {
+  position: fixed;
+}
+
+/**
+ * @summary Used to position an element relative to its closest ancestor with relative positioning.
+ *
+ * @name absolute
+ * @selector .ocps-is-absolute
+ * @modifier
+ */
+.ocps-is-absolute {
+  position: absolute;
+}
+
+/**
+ * @summary Class will absolutely center children content
+ *
+ * @name absolute-center
+ * @selector .ocps-align_absolute-center
+ * @modifier
+ */
+.ocps-align_absolute-center,
+.ocps-align--absolute-center {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin: auto;
+}

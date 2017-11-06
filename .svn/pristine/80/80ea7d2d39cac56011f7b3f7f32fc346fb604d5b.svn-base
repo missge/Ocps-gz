@@ -1,0 +1,30 @@
+// The Vue build version to load with the `import` command
+// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
+import Vue from 'vue'
+import App from './App'
+import router from './router'
+import axios from 'axios'
+import store from './store'
+import {MessageBox,DatePicker} from 'element-ui'
+import nodeRSA from 'node-rsa'
+
+Vue.prototype.$rsakey = new nodeRSA({b: 512})
+
+Vue.prototype.$msgbox = MessageBox
+Vue.prototype.$alert = MessageBox.alert
+Vue.prototype.$confirm = MessageBox.confirm
+Vue.prototype.$prompt = MessageBox.prompt
+
+Vue.use(DatePicker)
+
+Vue.config.productionTip = false
+Vue.prototype.$http = axios
+
+/* eslint-disable no-new */
+new Vue({
+  el: '#app',
+  router,
+  store,
+  template: '<App/>',
+  components: { App }
+})

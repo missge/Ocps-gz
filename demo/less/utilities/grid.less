@@ -1,0 +1,637 @@
+/**
+ * @summary Initializes grid
+ *
+ * @selector .ocps-grid
+ * @modifier
+ */
+.ocps-grid {
+  display: -ms-flexbox;
+  display: flex;
+}
+
+/**
+ * @summary Initializes grid
+ *
+ * @selector .ocps-grid_frame
+ * @modifier
+ */
+.ocps-grid_frame,
+.ocps-grid--frame {
+  min-width: 100vw;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/**
+ * @summary Initializes grid
+ *
+ * @selector .ocps-grid_vertical
+ * @modifier
+ */
+.ocps-grid_vertical,
+.ocps-grid--vertical {
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+/**
+ * @summary Initializes grid
+ *
+ * @selector .ocps-grid_vertical-reverse
+ * @modifier
+ */
+.ocps-grid_vertical-reverse,
+.ocps-grid--vertical-reverse {
+  -ms-flex-direction: column-reverse;
+  flex-direction: column-reverse;
+}
+
+/**
+ * @summary Initializes grid
+ *
+ * @selector .ocps-grid_reverse
+ * @modifier
+ */
+.ocps-grid_reverse,
+.ocps-grid--reverse {
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+}
+
+/**
+ * @summary Allows columns to wrap when they exceed 100% of their parent’s width
+ *
+ * @selector .ocps-wrap
+ * @modifier
+ */
+.ocps-wrap {
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -ms-flex-align: start;
+  align-items: flex-start;
+}
+
+/**
+ * @summary Keeps columns on one line. Allows columns to stretch and fill 100% of the parent&rsquo;s width and height.
+ *
+ * @selector .ocps-nowrap
+ * @modifier
+ */
+.ocps-nowrap {
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+}
+
+@media (min-width: 30em) {
+  .ocps-nowrap_small,
+  .ocps-nowrap--small {
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+  }
+}
+
+@media (min-width: 48em) {
+  .ocps-nowrap_medium,
+  .ocps-nowrap--medium {
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+  }
+}
+
+@media (min-width: 64em) {
+  .ocps-nowrap_large,
+  .ocps-nowrap--large {
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+  }
+}
+
+/**
+ * @summary .ocps-{size}-nowrap used for responsive design
+ *
+ * @selector [class*='-nowrap']
+ * @modifier
+ */
+@media (min-width: 20em) {
+  .ocps-x-small-nowrap {
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+  }
+}
+
+@media (min-width: 30em) {
+  .ocps-small-nowrap {
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+  }
+}
+
+@media (min-width: 48em) {
+  .ocps-medium-nowrap {
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+  }
+}
+
+@media (min-width: 64em) {
+  .ocps-large-nowrap {
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+  }
+}
+
+/**
+ * @summary Normalizes the 0.75rem of padding when nesting a grid in a region with `.ocps-p-horizontal_small`
+ *
+ * @selector .ocps-grid_pull-padded
+ * @modifier
+ */
+.ocps-grid_pull-padded,
+.ocps-grid--pull-padded {
+  margin-right: -0.75rem;
+  margin-left: -0.75rem;
+}
+
+/**
+ * @summary Normalizes the 0.125rem of padding when nesting a grid in a region with `.ocps-p-horizontal_xxx-small`
+ *
+ * @selector .ocps-grid_pull-padded-xxx-small
+ * @modifier
+ */
+.ocps-grid_pull-padded-xxx-small,
+.ocps-grid--pull-padded-xxx-small {
+  margin-right: -0.125rem;
+  margin-left: -0.125rem;
+}
+
+/**
+ * @summary Normalizes the 0.25rem of padding when nesting a grid in a region with `.ocps-p-horizontal_xx-small`
+ *
+ * @selector .ocps-grid_pull-padded-xx-small
+ * @modifier
+ */
+.ocps-grid_pull-padded-xx-small,
+.ocps-grid--pull-padded-xx-small {
+  margin-right: -0.25rem;
+  margin-left: -0.25rem;
+}
+
+/**
+ * @summary Normalizes the 0.5rem of padding when nesting a grid in a region with `.ocps-p-horizontal_x-small`
+ *
+ * @selector .ocps-grid_pull-padded-x-small
+ * @modifier
+ */
+.ocps-grid_pull-padded-x-small,
+.ocps-grid--pull-padded-x-small {
+  margin-right: -0.5rem;
+  margin-left: -0.5rem;
+}
+
+/**
+ * @summary Normalizes the 0.75rem of padding when nesting a grid in a region with `.ocps-p-horizontal_small`
+ *
+ * @selector .ocps-grid_pull-padded-small
+ * @modifier
+ */
+.ocps-grid_pull-padded-small,
+.ocps-grid--pull-padded-small {
+  margin-right: -0.75rem;
+  margin-left: -0.75rem;
+}
+
+/**
+ * @summary Normalizes the 1rem of padding when nesting a grid in a region with `.ocps-p-horizontal_medium`
+ *
+ * @selector .ocps-grid_pull-padded-medium
+ * @modifier
+ */
+.ocps-grid_pull-padded-medium,
+.ocps-grid--pull-padded-medium {
+  margin-right: -1rem;
+  margin-left: -1rem;
+}
+
+/**
+ * @summary Normalizes the 1.5rem of padding when nesting a grid in a region with `.ocps-p-horizontal_large`
+ *
+ * @selector .ocps-grid_pull-padded-large
+ * @modifier
+ */
+.ocps-grid_pull-padded-large,
+.ocps-grid--pull-padded-large {
+  margin-right: -1.5rem;
+  margin-left: -1.5rem;
+}
+
+/**
+ * @summary Initializes a grid column
+ *
+ * @selector .ocps-col
+ * @modifier
+ */
+.ocps-col,
+[class*="ocps-col_padded"],
+[class*="ocps-col--padded"] {
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+}
+
+/**
+ * @summary Adds border to top side of column
+ *
+ * @selector .ocps-col_rule-top
+ * @restrict .ocps-col
+ * @modifier
+ */
+@media (min-width: 64em) {
+  .ocps-col_rule-top,
+  .ocps-col--rule-top {
+    border-top: 1px solid #f4f6f9;
+  }
+}
+
+/**
+ * @summary Adds border to right side of column
+ *
+ * @selector .ocps-col_rule-right
+ * @restrict .ocps-col
+ * @modifier
+ */
+@media (min-width: 64em) {
+  .ocps-col_rule-right,
+  .ocps-col--rule-right {
+    border-right: 1px solid #f4f6f9;
+  }
+}
+
+/**
+ * @summary Adds border to bottom side of column
+ *
+ * @selector .ocps-col_rule-bottom
+ * @restrict .ocps-col
+ * @modifier
+ */
+@media (min-width: 64em) {
+  .ocps-col_rule-bottom,
+  .ocps-col--rule-bottom {
+    border-bottom: 1px solid #f4f6f9;
+  }
+}
+
+/**
+ * @summary Adds border to left side of column
+ *
+ * @selector .ocps-col_rule-left
+ * @restrict .ocps-col
+ * @modifier
+ */
+@media (min-width: 64em) {
+  .ocps-col_rule-left,
+  .ocps-col--rule-left {
+    border-left: 1px solid #f4f6f9;
+  }
+}
+
+/**
+ * @summary Needed when truncation is nested in a flexible container in a grid
+ *
+ * @selector .ocps-has-flexi-truncate
+ * @modifier
+ */
+.ocps-has-flexi-truncate {
+  -ms-flex: 1 1 0%;
+  flex: 1 1 0%;
+  min-width: 0;
+}
+
+/**
+ * @summary Removes flexbox from grid column
+ *
+ * @selector .ocps-no-flex
+ * @modifier
+ */
+.ocps-no-flex {
+  -ms-flex: none;
+  flex: none;
+}
+
+/**
+ * @summary Sets the column to a min-width of 0
+ *
+ * @selector .ocps-no-space
+ * @modifier
+ */
+.ocps-no-space {
+  min-width: 0;
+}
+
+/**
+ * @summary Allows column to grow to children&rsquo;s content
+ *
+ * @selector .ocps-grow
+ * @modifier
+ */
+.ocps-grow {
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+
+/**
+ * @summary Prevents column from growing to children&rsquo;s content
+ *
+ * @selector .ocps-grow-none
+ * @modifier
+ */
+.ocps-grow-none {
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+}
+
+/**
+ * @summary Allows column to shrink to children's content
+ *
+ * @selector .ocps-shrink
+ * @modifier
+ */
+.ocps-shrink {
+  -ms-flex-negative: 1;
+  flex-shrink: 1;
+}
+
+/**
+ * @summary Prevents column from shrinking to children's content
+ *
+ * @selector .ocps-shrink-none
+ * @modifier
+ */
+.ocps-shrink-none {
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+}
+
+.ocps-text-longform ul.ocps-grid {
+  margin-left: 0;
+  list-style: none;
+}
+
+.ocps-col_padded,
+.ocps-col--padded {
+  padding-right: 0.75rem;
+  padding-left: 0.75rem;
+}
+
+.ocps-col_padded-medium,
+.ocps-col--padded-medium {
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+.ocps-col_padded-large,
+.ocps-col--padded-large {
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+.ocps-col_padded-around,
+.ocps-col--padded-around {
+  padding: 0.75rem;
+}
+
+.ocps-col_padded-around-medium,
+.ocps-col--padded-around-medium {
+  padding: 1rem;
+}
+
+.ocps-col_padded-around-large,
+.ocps-col--padded-around-large {
+  padding: 1.5rem;
+}
+
+@media (min-width: 64em) {
+  .ocps-col-rule_top, .ocps-col-rule--top {
+    border-top: 1px solid #f4f6f9;
+  }
+
+  .ocps-col-rule_right, .ocps-col-rule--right {
+    border-right: 1px solid #f4f6f9;
+  }
+
+  .ocps-col-rule_bottom, .ocps-col-rule--bottom {
+    border-bottom: 1px solid #f4f6f9;
+  }
+
+  .ocps-col-rule_left, .ocps-col-rule--left {
+    border-left: 1px solid #f4f6f9;
+  }
+}
+
+/**
+ * @summary Columns align in the center to the main axis and expand in each direction
+ *
+ * @selector .ocps-grid_align-center
+ * @modifier
+ */
+.ocps-grid_align-center,
+.ocps-grid--align-center {
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.ocps-grid_align-center .ocps-col,
+.ocps-grid_align-center [class*="ocps-col_padded"],
+.ocps-grid_align-center [class*="ocps-col--padded"],
+.ocps-grid--align-center .ocps-col,
+.ocps-grid--align-center [class*="ocps-col_padded"],
+.ocps-grid--align-center [class*="ocps-col--padded"] {
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+}
+
+/**
+ * @summary Columns are evenly distributed with equal space around them all
+ *
+ * @selector .ocps-grid_align-space
+ * @modifier
+ */
+.ocps-grid_align-space,
+.ocps-grid--align-space {
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+}
+
+.ocps-grid_align-space .ocps-col,
+.ocps-grid_align-space [class*="ocps-col_padded"],
+.ocps-grid_align-space [class*="ocps-col--padded"],
+.ocps-grid--align-space .ocps-col,
+.ocps-grid--align-space [class*="ocps-col_padded"],
+.ocps-grid--align-space [class*="ocps-col--padded"] {
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+}
+
+/**
+ * @summary Columns align to the left and right followed by center. Space is equal between them
+ *
+ * @selector .ocps-grid_align-spread
+ * @notes With only two columns &mdash; you can get a similar effect by setting one of the columns to `.ocps-no-flex`
+ * @modifier
+ */
+.ocps-grid_align-spread,
+.ocps-grid--align-spread {
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.ocps-grid_align-spread .ocps-col,
+.ocps-grid_align-spread [class*="ocps-col_padded"],
+.ocps-grid_align-spread [class*="ocps-col--padded"],
+.ocps-grid--align-spread .ocps-col,
+.ocps-grid--align-spread [class*="ocps-col_padded"],
+.ocps-grid--align-spread [class*="ocps-col--padded"] {
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+}
+
+/**
+ * @summary Columns start on the opposite end of the grid's main axis
+ *
+ * @selector .ocps-grid_align-end
+ * @modifier
+ */
+.ocps-grid_align-end,
+.ocps-grid--align-end {
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+}
+
+.ocps-grid_align-end .ocps-col,
+.ocps-grid_align-end [class*="ocps-col_padded"],
+.ocps-grid_align-end [class*="ocps-col--padded"],
+.ocps-grid--align-end .ocps-col,
+.ocps-grid--align-end [class*="ocps-col_padded"],
+.ocps-grid--align-end [class*="ocps-col--padded"] {
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+}
+
+/**
+ * @summary Columns start at the beginning of the grid's cross axis
+ *
+ * @selector .ocps-grid_vertical-align-start
+ * @modifier
+ */
+.ocps-grid_vertical-align-start,
+.ocps-grid--vertical-align-start {
+  -ms-flex-align: start;
+  align-items: flex-start;
+  -ms-flex-line-pack: start;
+  align-content: flex-start;
+}
+
+/**
+ * @summary Columns align in the center to the cross axis and expand it each direction
+ *
+ * @selector .ocps-grid_vertical-align-center
+ * @modifier
+ */
+.ocps-grid_vertical-align-center,
+.ocps-grid--vertical-align-center {
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+}
+
+/**
+ * @summary Columns start on the opposite end of the grid's cross axis
+ *
+ * @selector .ocps-grid_vertical-align-end
+ * @modifier
+ */
+.ocps-grid_vertical-align-end,
+.ocps-grid--vertical-align-end {
+  -ms-flex-align: end;
+  align-items: flex-end;
+  -ms-flex-line-pack: end;
+  align-content: flex-end;
+}
+
+/**
+ * @summary Vertically aligns element to top of `.ocps-grid`
+ *
+ * @selector .ocps-align-top
+ * @modifier
+ */
+.ocps-align-top {
+  vertical-align: top;
+  -ms-flex-item-align: start;
+  align-self: flex-start;
+}
+
+/**
+ * @summary Vertically aligns element to middle of `.ocps-grid`
+ *
+ * @selector .ocps-align-middle
+ * @modifier
+ */
+.ocps-align-middle {
+  vertical-align: middle;
+  -ms-flex-item-align: center;
+  -ms-grid-row-align: center;
+  align-self: center;
+}
+
+/**
+ * @summary Vertically aligns element to bottom of `.ocps-grid`
+ *
+ * @selector .ocps-align-bottom
+ * @modifier
+ */
+.ocps-align-bottom {
+  vertical-align: bottom;
+  -ms-flex-item-align: end;
+  align-self: flex-end;
+}
+
+.ocps-align-content-center {
+  -ms-flex: 1;
+  flex: 1;
+  -ms-flex-item-align: center;
+  -ms-grid-row-align: center;
+  align-self: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}

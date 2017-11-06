@@ -1,0 +1,249 @@
+<template>
+  <div class="ocps-data-box">
+    <ul class="ocpspc-tabs__nav">
+      <li  @click="tradeTypeFn('')" class="ocps-tabs-items " :class="{'ocps-tabs-items-on' :clicked === ''}">全部</li>
+      <li @click="tradeTypeFn('CRD')" class="ocps-tabs-items" :class="{'ocps-tabs-items-on' :clicked === 'CRD'}">消费</li>
+      <li @click="tradeTypeFn('CCD')" class="ocps-tabs-items" :class="{'ocps-tabs-items-on' :clicked === 'CCD'}">充值</li>
+      <li @click="tradeTypeFn('PRF')" class="ocps-tabs-items"  :class="{'ocps-tabs-items-on' :clicked === 'PRF'}">退货</li>
+      <li  @click="tradeTypeFn('TFO')" class="ocps-tabs-items" :class="{'ocps-tabs-items-on' :clicked === 'TFO'}">转出</li>
+      <li  @click="tradeTypeFn('TFI')" class="ocps-tabs-items" :class="{'ocps-tabs-items-on' :clicked === 'TFI'}">转入</li>
+    </ul>
+    <div class="ocpspc-transaction">
+      <table class="ocps-table ocps-table-hover">
+         <tr class="ocps-active">
+            <th>流水号</th>
+            <th>交易日期</th>
+            <th>交易类型</th>
+            <th>交易金额</th>
+            <th>交易状态</th>
+            <th>详情</th>
+        </tr>
+         <tr v-for="(items,index) in datalist"  @click="Record_detailsFn(items.tradeId)">
+            <td>
+              <p class="ocps-consumer-time"> {{items.tradeId}} </p>
+            </td>
+            <td>
+              <p class="ocps-consumer-time"> {{items.updateTime}} </p>
+            </td>
+            <td>
+              <p v-if="items.tradeType == 2"> 消费</p>
+              <p v-if="items.tradeType == 6"> 充值</p>
+              <p v-if="items.tradeType == 14"> 退货</p>
+              <p v-if="items.tradeType == 15"> 转出</p>
+              <p v-if="items.tradeType == 16"> 转入</p>
+            </td>
+            <td>
+                <div class="ocps-consumner-rt" v-if="items.tradeType == 6 || items.tradeType == 16 || items.tradeType == 14" >
+                +{{items.tradeAmount}}
+                </div>
+                <div class="ocps-consumner-rt" v-if="items.tradeType == 2 || items.tradeType == 15" >
+                <!---{{items.tradeAmount}}-->
+                </div>
+            </td>
+            <td>完成</td>
+            <td>点击查看</td>
+         </tr>
+      </table>
+    </div>
+    <div class="ocps-pc-page">
+      <span  @click="nextPage(0)" class="nextpage">上一页</span>
+      <span  @click="nextPage(1)" class="nextpage">下一页</span>
+    </div>
+    <div class="ocps-data">
+      <el-date-picker v-model="change_month"  type="month" placeholder="选择月">  </el-date-picker>
+      <span  @click="pickerFn(change_month)" >搜索</span>
+    </div>
+
+  </div>
+</template>
+<script>
+  import qs from 'qs'
+  import router from '@/router'
+  import Vue from 'vue'
+  export default{
+    name: 'TransactionRecord',
+    data () {
+      return{
+        show:'false',
+        RecordInfo:{
+          tradeType:'',
+          loginUser: this.$store.state.loginUserId,
+          flag:this.$store.state.flag,
+          month:'',
+          date:'',
+          page:'1'
+        },
+        ret:this.$store.state.TransactionRecord.ret,
+        clicked:'',
+        change_month:''
+      }
+  },
+  computed: {
+    datalist(){
+      return this.$store.state.TransactionRecord.result
+    },
+    pay_money(){
+      return this.$store.state.TransactionRecord.pay_money
+    },
+    income_money(){
+      this.$store.state.TransactionRecord.income_money
+    }
+  },
+  methods: {
+    init () {
+//      this.pay_money=this.$store.state.TransactionRecord.pay_money
+//      this.income_money=this.$store.state.TransactionRecord.income_money
+      //        年月日
+//      this.month = this.$store.state.TransactionRecord.month
+//      this.year = this.$store.state.TransactionRecord.year
+    },
+    Record_detailsFn:function (tradeId){
+      console.log(tradeId)
+      var url=this.$store.state.localHostUrl + '/getRecordDetail.json'
+      var formData = qs.stringify({orderId:tradeId})
+      var that=this
+      this.$http.post(url, formData, {emulateJSON: true}).then(
+        function (res){
+          if(res.data.ret){
+            var res = res.data.map[0]
+            router.push({path:'/DetailInquiry',query:{orderId:tradeId,res:res}})
+          }else{
+            alert(res.data.tip)
+          }
+        }
+      )
+    },
+    filterFn:function () {
+      this.show=!this.show
+    },
+    tradeTypeFn:function (val) {
+      this.RecordInfo.month =this.$store.state.TransactionRecord.pramater.month
+       this.RecordInfo.loginUser=this.$store.state.loginUserId
+       this.RecordInfo.flag=this.$store.state.flag
+      this.clicked = val
+      this.show=!this.show
+      this.RecordInfo.tradeType=val
+      this.RecordInfo.page ='1'
+      var  Formdata = qs.stringify(this.RecordInfo)
+      var url=this.$store.state.localHostUrl+'/getRecord.json'
+      var that=this
+      that.$store.state.TransactionRecord.result=[]
+      this.$http.post(url, Formdata, {emulateJSON: true}).then(
+        function(res){
+          console.log(res.data)
+          if(res.data.ret){
+            var income_money = 0;
+            var pay_money = 0;
+            var type;
+            for(var i=0;i<res.data.map.length;i++){
+              Vue.set(that.datalist,i,res.data.map[i])
+              type=res.data.map[i].tradeType
+              if(type === 6 || type === 16 || type === 14){
+                income_money +=res.data.map[i].tradeAmount
+              }
+              if(type === 2 || type === 15){
+                pay_money +=res.data.map[i].tradeAmount
+              }
+            }
+            that.$store.state.TransactionRecord.income_money = income_money
+            that.$store.state.TransactionRecord.pay_money = pay_money
+            alert(res.data.tip)
+          }else{
+            that.$store.state.TransactionRecord.result=[]
+            alert(res.data.tip)
+            return
+          }
+        }
+      )
+    },
+    nextPage: function (num) {
+       this.RecordInfo.loginUser=this.$store.state.loginUserId
+       this.RecordInfo.flag=this.$store.state.flag
+         this.RecordInfo.month =this.$store.state.TransactionRecord.pramater.month
+
+      if(num === 1 && this.RecordInfo.page>0){
+        this.RecordInfo.page = (parseInt(this.RecordInfo.page)+1)+''
+      }
+      if(num === 0 && this.RecordInfo.page>1){
+        this.RecordInfo.page = (parseInt(this.RecordInfo.page)-1)+''
+
+      }
+      var  Formdata = qs.stringify(this.RecordInfo)
+      var url=this.$store.state.localHostUrl+'/getRecord.json'
+      var that=this
+    console.log(this.RecordInfo.page)
+
+      this.$http.post(url, Formdata, {emulateJSON: true}).then(
+        function(res){
+          that.ret= res.data.ret
+          if(res.data.ret){
+            var income_money = 0;
+            var pay_money = 0;
+            var type;
+            for(var i=0;i<res.data.map.length;i++){
+              Vue.set(that.datalist,i,res.data.map[i])
+              type=res.data.map[i].tradeType
+            }
+            that.$store.state.TransactionRecord.income_money += income_money
+            that.$store.state.TransactionRecord.pay_money += pay_money
+          }else{
+            that.ret= res.data.ret
+            alert(res.data.tip)
+            return
+          }
+        }
+      )
+    },
+    pickerFn: function (val){
+      if(val==""){
+        alert("请选择日期")
+        return false
+      }
+      var val=val.toISOString().slice(0,7).split("-")
+      var month=parseInt(val[1])+1
+      if(month<=9){
+        this.RecordInfo.month=val[0]+"-0"+month
+      }else{
+        this.RecordInfo.month=val[0]+"-"+month
+      }
+      this.RecordInfo.tradeType=''
+      this.RecordInfo.page ='1'
+      var  Formdata = qs.stringify(this.RecordInfo)
+      var url=this.$store.state.localHostUrl+'/getRecord.json'
+      var that=this
+      this.$http.post(url, Formdata, {emulateJSON: true}).then(
+        function(res){
+          if(res.data.ret){
+            var income_money = 0;
+            var pay_money = 0;
+            var type;
+            for(var i=0;i<res.data.map.length;i++){
+              Vue.set(that.datalist,i,res.data.map[i])
+              type=res.data.map[i].tradeType
+            }
+            that.$store.state.TransactionRecord.income_money = income_money
+            that.$store.state.TransactionRecord.pay_money = pay_money
+            alert(res.data.tip)
+          }else{
+            that.$store.state.TransactionRecord.result=[]
+            alert(res.data.tip)
+            return
+          }
+        }
+      )
+
+
+
+    }
+
+
+  },
+  mounted(){
+
+  }
+  }
+
+</script>
+<style>
+
+</style>

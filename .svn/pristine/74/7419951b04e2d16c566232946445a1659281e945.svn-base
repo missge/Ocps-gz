@@ -1,0 +1,970 @@
+body {
+  margin: 0;
+  color: #4d4d4d;
+  font-family: '微软雅黑';
+  font-size: 14px;
+  min-width: 1210px;
+}
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "微软雅黑";
+}
+a {
+  text-decoration: none;
+}
+h1, h2 {
+  font-weight: normal;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+.lf{float:left}
+.rt{float: right}
+input{boder:none}
+.clear{
+  overflow: hidden;
+}
+/*首页header*/
+.opsc-pc-header{
+  height: 131px;
+  background: url(../Images/banner.png) center center no-repeat;
+  background-size: cover;
+  border-bottom: 8px solid #A9D8F6;
+}
+.opsc-pc-banner-bd{
+  height: 131px;
+  width: 1210px;
+  margin: 0 auto;
+  position: relative;
+}
+.opsc-pc-header .opsc-pc-banner-bd .opsc-pc-top-opts {
+  text-align: right;
+  margin-right: 15px;
+  font-size: 12px;
+  padding-top: 10px;
+}
+.opsc-pc-header .opsc-pc-banner-bd .opsc-pc-logo {
+  position: absolute;
+  top: 25px;
+  left: 30px;
+  width: 132px;
+  height: 88px;
+  display: block;
+
+}
+.opsc-pc-header .opsc-pc-banner-bd .opsc-pc-logo img {
+  width: 132px;
+  height: 88px;
+}
+.opsc-pc-header .opsc-pc-banner-bd .opsc-pc-top-opts a {
+  color: #0b8ee9;
+}
+
+.opsc-pc-header .opsc-pc-banner-bd .opsc-pc-home-title {
+  display: block;
+  width: 196px;
+  height: 41px;
+  background: url(../Images/membercenter.png) center center no-repeat;
+  position: absolute;
+  left: 190px;
+  top: 55px;
+}
+.opsc-pc-header .opsc-pc-banner-bd .opsc-pc-other-info {
+   position: absolute;
+   top: 55px;
+   right: 15px;
+   height: 40px;
+   line-height: 40px;
+   color: #333;
+   font-size: 16px;
+ }
+.opsc-pc-header .opsc-pc-banner-bd .opsc-pc-other-info span {
+  font-family: Arial;
+  font-weight: bold;
+}
+
+/*nav*/
+.opcs-top {
+  /*background: #e7e7e7;*/
+  height: 130px;
+}
+.opcs-top .opcs-mem-info-bd {
+  height: 130px;
+  width: 1210px;
+  margin: 0 auto;
+  position: relative;
+}
+.opcs-top .opcs-mem-info-bd .opcs-photo {
+  width: 140px;
+}
+.opcs-top .opcs-mem-info-bd>div {
+  display: inline-block;
+  zoom: 1;
+  vertical-align: middle;
+  height: 130px;
+}
+.opcs-top .opcs-mem-info-bd .opcs-photo .opcs-img-bg {
+  display: block;
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  margin: 15px auto 0 auto;
+  overflow: hidden;
+  background: url("../Images/photo.png") no-repeat center center;
+  position: relative;
+}
+.opcs-top .opcs-mem-info-bd .opcs-photo .opcs-img-bg>span{
+  position: absolute;
+  bottom: 3px;
+  color: #fff;
+  display: block;
+  width: 100%;
+  left: 0;
+}
+.opcs-top .opcs-mem-info-bd .opcs-photo .opcs-img-bg img {
+  width: 77px;
+  height: 77px;
+  margin-top: 4px;
+  border-radius: 100%;
+}
+.opcs-top .opcs-mem-info-bd .opcs-info {
+  width: 522px;
+}
+.opcs-top .opcs-mem-info-bd .opcs-info .opcs-row1 {
+  margin-top:29px;
+  height: 30px;
+}
+.opcs-top .opcs-mem-info-bd .opcs-info .opcs-row2 {
+  color: #000;
+  font-size: 12px;
+  height: 20px;
+  line-height: 20px;
+}
+.opcs-top .opcs-mem-info-bd .opcs-info .opcs-row3 {
+  color: #7f7f7f;
+  font-size: 9px;
+  line-height: 20px;
+}
+
+.opcs-top .opcs-mem-info-bd .opcs-info .opcs-row1 .opcs-hello {
+  color: #ec5051;
+  font-size: 18px;
+}
+.opcs-top .opcs-mem-info-bd .opcs-info .opcs-row2 span {
+  padding-right: 20px;
+}
+.opcs-top .opcs-mem-info-bd .opcs-info .opcs-row2 span {
+  padding-right: 20px;
+}
+.opcs-top .opcs-mem-info-bd .opcs-info .opcs-row3 {
+  color: #7f7f7f;
+  font-size: 9px;
+  line-height: 20px;
+}
+.opcs-info2 ul{
+  margin-top: 50px;
+}
+.opcs-top .opcs-mem-info-bd .opcs-info2 ul li {
+  list-style: none;
+  float: left;
+  height: 55px;
+  text-align: center;
+  margin-right: 6px;
+}
+.opcs-top .opcs-mem-info-bd .opcs-info2 ul li div {
+  line-height: 28px;
+  font-size: 12px;
+  text-align: left;
+  color: #Fff;
+  padding-left: 5px;
+}
+/*内容content*/
+.opsc-main {
+  width: 1200px;
+  margin: 0 auto;
+  background: #fff;
+}
+.opsc-main-header,
+.opsc-main-content{
+  /*float: left;*/
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+}
+/*.opsc-main .opsc-main-content {*/
+  /*width: 200px;*/
+
+/*}*/
+ .opsc-main-left {
+  width: 160px;
+}
+.opsc-main-header-left{
+  width: 180px;
+}
+.opsc-main .opsc-main-content .ocps-home {
+  color: #ec5051;
+  margin: 22px auto 0 auto;
+  font-size: 16px;
+  padding: 20px 0;
+  display: block;
+  text-align: center;
+}
+/*.ocps-icon.ocps-icon-home {*/
+  /*width: 17px;*/
+  /*height: 16px;*/
+  /*background: url(../Images/home.png) center center no-repeat;*/
+/*}*/
+/*.ocps-icon {*/
+  /*display: inline-block;*/
+  /*zoom: 1;*/
+  /*vertical-align: middle;*/
+  /*margin-bottom: 3px;*/
+/*}*/
+
+
+.block-container .opsc-main-right {
+  width: 1000px;
+  float: left;
+}
+
+.ocps-top-rt,.ocps-top-rt2,.ocps-top-rt3{
+  position: relative;
+}
+.ocps-top-rt{
+  background: #E8BF3F;
+  width: 200px;
+}
+.ocps-top-rt2{
+  background: #86BA4C;
+  width: 150px;
+}
+.ocps-top-rt3{
+  background: #4993C4;  width: 150px;
+}
+.ocps-color_one1,.ocps-color_one2,.ocps-color_one3{
+  position: absolute;
+  width: 50px;
+  height: 56px;
+  right: 0;
+  bottom: 0;
+}
+.ocps-color_one1{
+  background: #DDB53C;
+}
+.ocps-color_one2{
+  background: #81B249;
+}
+.ocps-color_one3{
+  background: #448BB9;
+}
+.ocps-top-rt-icon1,.ocps-top-rt-icon2,.ocps-top-rt-icon3{
+  position: absolute;
+  width: 50px;
+  height: 56px;
+  right: 5px;
+  bottom: 0;
+  display: block;
+}
+.ocps-top-rt-icon1{
+  background: url(../Images/icon1.png) center center no-repeat ;
+}
+
+.ocps-top-rt-icon2{
+  background: url(../Images/icon2.png) center center no-repeat ;
+}
+
+.ocps-top-rt-icon3{
+  background: url(../Images/icon3.png) center center no-repeat ;
+}
+
+
+ .opcs-btna{
+  color: #000000;
+}
+.opsc-main-header{
+  height: 45px;
+  background: #EAF9FF;
+  line-height: 45px;
+}
+.opsc-main-header-left{
+  padding-left:20px ;
+}
+/*主页内容*/
+.opsc-main-left h3 a{
+  color: #FE653C;
+  padding-left:20px ;
+  font-weight: normal;
+  font-size: 17px;
+}
+.opsc-main-left ul li {
+  height: 50px;
+  line-height: 50px;
+  border-bottom:1px solid #E1E1E1 ;
+}
+
+.ocps-items-icon{
+  /*padding-left: 21px;*/
+  width: 24px;
+  height: 21px;
+display: inline-block;
+  vertical-align: sub;
+  margin-right: 5px;
+}
+.items{
+  background:url(../Images/item1.png) center center no-repeat;
+}
+.items-on{
+  background:url(../Images/item1_on.png) center center no-repeat;
+}
+.items1{
+  background:url(../Images/item2.png) center center no-repeat;
+}
+.items-on1{
+  background:url(../Images/item2_on.png) center center no-repeat;
+}
+.items2{
+  background:url(../Images/item3.png) center center no-repeat;
+}
+.items2-on{
+  background:url(../Images/item3_on.png) center center no-repeat;
+}
+.items3{
+  background:url(../Images/item4.png) center center no-repeat;
+}
+.items3-on{
+  background:url(../Images/item4_on.png) center center no-repeat;
+}
+.items4{
+  background:url(../Images/item5.png) center center no-repeat;
+}
+.items4-on{
+  background:url(../Images/item5_on.png) center center no-repeat;
+}
+.items5{
+  background:url(../Images/item6.png) center center no-repeat;
+}
+.items5-on{
+  background:url(../Images/item6_on.png) center center no-repeat;
+}
+.items6{
+  background:url(../Images/item7.png) center center no-repeat;
+}
+.items6-on{
+  background:url(../Images/item7_on.png) center center no-repeat;
+}
+.items7{
+  background:url(../Images/item8.png) center center no-repeat;
+}
+.items7-on{
+  background:url(../Images/item8_on.png) center center no-repeat;
+}
+.items8{
+  background:url(../Images/item8.png) center center no-repeat;
+}
+.items8-on{
+  background:url(../Images/item8_on.png) center center no-repeat;
+}
+.items9{
+  background:url(../Images/item9.png) center center no-repeat;
+}
+.items9-on{
+  background:url(../Images/item9_on.png) center center no-repeat;
+}
+.items10{
+  background:url(../Images/item10.png) center center no-repeat;
+}
+.items10-on{
+  background:url(../Images/item10_on.png) center center no-repeat;
+}
+.items11{
+  background:url(../Images/item11.png) center center no-repeat;
+}
+.items11-on{
+  background:url(../Images/item11_on.png) center center no-repeat;
+}
+.items12{
+  background:url(../Images/item12.png) center center no-repeat;
+}
+.items12-on{
+  background:url(../Images/item12_on.png) center center no-repeat;
+}
+
+.opsc-main-left a{
+  display: block;
+  text-decoration: none;
+  color:#000;
+}
+.ocps-items-box  a.Color-on{
+color:#FF643E;
+}
+
+.ocps-items{
+  padding-left:18px;
+}
+.ocps-pc-footer {
+  width: 100%;;
+  background-size:100%;
+  bottom: 0;
+  margin-top:20px ;
+}
+.opsc-main-right {
+  margin-left: 40px;
+  margin-top: 10px;
+  flex: 1 0 0;
+}
+/*/!**!/主页右下角*/
+.ocpspc-tabs__nav{
+  overflow: hidden;
+  height:40px ;
+  line-height: 40px;
+  border-bottom: 1px solid #ddd;
+}
+.ocpspc-tabs__nav .ocps-tabs-items{
+  float: left;
+  width: 70px;
+  text-align: center;
+  cursor: pointer;
+
+}
+.ocps-tabs-items-on{
+  color: #FF643E;
+  border-bottom:3px solid  #FF643E;
+  height: 39px;
+}
+.ocpspc-transaction{
+  margin-top: 10px;
+}
+.ocps-active{
+  background: #F7F8FA;
+}
+.ocps-active th{
+  text-align: center;
+}
+.ocps-table-hover tr{
+  height: 35px;
+  border-bottom: 1px solid #EAEAEA;
+}
+.ocps-table-hover tr:first-child{
+  border-top:1px solid #eaeaea ;
+}
+.ocps-table-hover td{
+text-align: center;
+}
+/*******************************************余额***************************************************************/
+.ocpspc-BalanceQuery-top{
+  height: 90px;
+  margin-bottom: 10px;
+  border:1px solid #E1E1E1;
+  position: relative;
+}
+.ocpspc-BalanceQuery-top-left{
+  overflow: hidden;
+}
+.ocpspc-BalanceQuery-yuetab{
+  float: left;
+  height: 72px;
+  border-right:1px solid #E1E1E1 ;
+  padding:0 20px 0 28px ;
+  margin-top:9px ;
+}
+.ocpspc-BalanceQuery-yuetab>img{
+  margin-top:6px ;
+}
+.ocpspc-BalanceQuery-money{
+  float: left;
+}
+.ocpspc-BalanceQuery-money{
+  height: 72px;
+  padding:0 20px 0 28px ;
+  margin-top:9px ;
+}
+.ocpspc-BalanceQuery-money p,.ocpspc-BalanceQuery-money h3{
+  height: 36px;
+  line-height: 36px;
+}
+.ocpspc-BalanceQuery-money h3{
+  font-size: 20px;
+}
+.ocpspc-BalanceQuery-top-rt{
+  position: absolute;
+  right: 14px;
+  top: 25px;
+  transform: translateY(50%);
+  -webkit-transform: translateY(50%);
+  -o-transform: translateY(50%);
+  -moz-box-sizing:translateY(50%);
+}
+.ocpspc-BalanceQuery-top-rt>span{
+  display: inline-block;
+  width: 88px;height: 25px;
+  border:1px solid #D3D3D3 ;
+  text-align: center;
+  line-height: 25px;
+  cursor: pointer;
+}
+.ocps-change-on{
+  color: #FF643E;
+}
+
+.ocps-icon {
+  display: inline-block;
+  background: #D3D3D3;
+  height: 1.5rem;
+  width: 2px;
+}
+
+/*.ocpspc-BalanceQuery-bot-box{*/
+  /*align-items:center;*/
+  /*-ms-flex-align:center;*/
+  /*align-content:center;*/
+  /*-ms-flex-line-pack: center;*/
+  /*display: flex;*/
+  /*padding-left: 10px;*/
+/*}*/
+.ocpspc-BalanceQuery-bot-title{
+  background: #F7F8FA;
+  padding-left:10px ;
+  height: 40px;
+  line-height: 40px;
+}
+.opsc-main-header-right{
+  padding-left:20px ;
+}
+.ocpspc-BalanceQuery-bot-boxs{
+  height: 60px;
+  line-height: 60px;
+}
+.ocpspc-BalanceQuery-bot{
+margin-bottom: 10px;
+  border:1px solid #E1E1E1;
+}
+.ocpspc-BalanceQuery-bot-box .ocps-col-xs-4{
+  height: 40px;
+}
+
+.ocpspc-BalanceQuery-bot-boxs{
+  /*align-items:center;*/
+  /*-ms-flex-align:center;*/
+  /*align-content:center;*/
+  /*-ms-flex-line-pack: center;*/
+  /*justify-content: space-between;*/
+  /*display: flex;*/
+  height: 60px;
+  overflow: hidden;
+
+}
+.ocpspc-BalanceQuery-bot-box{
+padding-left:10px ;
+}
+/*一卡通管理*/
+.ocpspc-cardManagement{
+  text-align: center;
+  margin-top: 30px;
+}
+.ocpspc-cardManagement>p{
+  margin: 30px 0 40px 0;
+  font-weight: bold;
+}
+.ocpspc-cardManagement-bot{
+
+}
+.ocpspc-border-blue{
+  display: inline-block;
+  width: 140px;
+  height: 30px;
+  line-height: 30px;
+  border: 1px solid #5EA4D8;
+  cursor: pointer;
+  margin: 0 20px;
+}
+/*************************************支付密码管理*****z***************************************/
+.ocps-bindMobile {
+  width: 45%;
+  margin: 0 auto;
+}
+.ocps-inputbox {
+  margin: .625rem 0;
+}
+.ocps-inputbox li {
+  /*width: 40%;*/
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 2rem;
+  height: 2.2rem;
+  line-height: 2rem;
+  margin: 10px auto;
+  /* border-bottom: 1px solid #a6c9ff; */
+}
+.ocps-bind_title {
+  width: 80px;
+  flex: 0 0 3.25rem;
+  -webkit-box-flex: 0 0 80px;
+  -webkit-flex: 0 0 80px;
+  -moz-box-flex: 0 0 80px;
+  -ms-flex: 0 0 80px;
+}
+.ocps-bindbox {
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+.ocps-none-input {
+  border: 1px solid #E4E4E4;
+  margin: 0;
+}
+.ocps-none-input {
+  width: 100%;
+  outline: none;
+  font-size: .8rem;
+  height: 2rem;
+  padding-left:10px ;
+}
+.red{
+  color: red;
+}
+.button_box{
+  /*width: 40%;*/
+  margin: 0 auto;
+  text-align: right;
+}
+.ocps-blue-button{
+  width: 100px;
+  height: 30px;
+  border: none;
+  color: #fff;
+  background: #5FB0F1;
+  margin: 0 10px;
+
+}
+/************************************************银行卡管理**********************************/
+.ocpspc-BankCardManagement>.ocps-container{
+  width: auto;
+}
+.ocps-transferCard--action {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(139,174,203,.35);
+  border-radius: 3px;
+  padding: 0 5px;
+  /* line-height: 1rem; */
+  color: #3f8afe;
+  font-size: 12px;
+}
+.ocps-transferCard-lf {
+  height: 2rem;
+  line-height: 2rem;
+  overflow: hidden;
+}
+.ocps-grid {
+  display: -ms-flexbox;
+  display: flex;
+}
+.ocps-grid--vertical-align-end, .ocps-grid_vertical-align-end {
+  -ms-flex-align: end;
+  align-items: flex-end;
+  -ms-flex-line-pack: end;
+  align-content: flex-end;
+}
+.cops-cardname {
+  display: inline-block;
+  /* padding: .8rem 0 0 1.8rem; */
+  font-size: 13px;
+  color: #309afe;
+  padding: 0 10px;
+}
+.cops-sub-cardname {
+  display: inline-block;
+  font-size: .5rem;
+  color: #4e4e4e;
+}
+.ocps-m-left--xx-small, .ocps-m-left_xx-small {
+  margin-left: .25rem;
+}
+.ocps-transferCard--action {
+  position: absolute;
+  top: .25rem;
+  right: .25rem;
+  background: rgba(139,174,203,.35);
+  border-radius: .125rem;
+  padding: 0 .25rem;
+  height: 1rem;
+  line-height: 1rem;
+  color: #3f8afe;
+  font-size: .75rem;
+}.cops-bankNumber {
+   color: #188ffe;
+   font-size: 1rem;
+   margin-top: 1rem;
+   text-align: right;
+ }
+.ocps-transferCard-rt{
+  position: relative;
+  // background: url("../Images/card2.png") left bottom no-repeat;
+    background: url("../Images/card.png") left bottom no-repeat;
+  background-size: contain;
+  height: 4rem;
+  overflow: hidden;
+}
+.ocps-transferCard-rt1{
+  position: relative;
+  background: url("../Images/card2.png") left bottom no-repeat;
+  background-size: contain;
+  height: 4rem;
+  overflow: hidden;
+}
+.ocps-blue-border {
+  height: 100px;
+  width: 100%;
+  border: 1px solid #cdddff;
+  box-shadow: 1px 2px 2px 1px #dfeafe;
+  border-radius: 5px;
+  /* margin: .55rem 0; */
+}
+.ocps-transferCard-bg{
+  position: relative;
+  background: url("../Images/rt-bg2.png") right top no-repeat;
+  background-size: contain;
+  overflow: hidden;
+  height: 100px;
+  width: 90%;
+  margin: 0 auto;
+}
+.ocps-main-cardocps-secondary-card{
+  position: relative;
+  background: url("../Images/rt-bg3.png") right top no-repeat;
+  background-size: contain;
+  overflow: hidden;
+  height: 100px;
+  width: 90%;
+  margin: 0 auto;
+}
+/*一卡通管理*/
+.ocps-transferCard-name {
+  padding-left: 0.85rem;
+  font-size: 0.9rem;
+  color: #616161;
+}
+
+
+.ocps-transferCard-number, .ocps-transferCard-operation {
+  text-align: right;
+  padding-right: .5rem;
+}
+.ocps-transferCard-rt.ocps-secondary-card {
+  background-image: url(../Images/card3.png);
+}
+.ocps-transferCard-number {
+  font-size: 1rem;
+}
+.ocps-transferCard-operation span {
+  color: #2D79FF;
+}
+.ocps-secondary-card span {
+  color: #db5a03;
+}
+
+/*****************************************购卡******************************************************/
+
+.ocps-shoppCard .ocps-row {
+  margin-bottom: 1rem;
+}.ocps-div_btn {
+   color: #3a7eed;
+   background: #fff;
+ }
+.ocps-div_btn {
+  border: 1px solid #3a7eed;
+  border-radius: 3px;
+  padding: .5rem;
+  text-align: center;
+  cursor: pointer;
+}
+.ocps-div_btn-on {
+  border-color: #3a7eed;
+  color: #fff;
+  background: #3a7eed;
+}
+.ocps-tab-title {
+  background: #f4f8ff;
+  height: 35px;
+  margin: 0;
+  line-height: 35px;
+  padding-left: 20px;
+}
+.ocps-shoppCard {
+  width: 50%;
+  margin: 1rem auto;
+}
+.ocps-shoppCard .ocps-row{
+  overflow: hidden;
+}
+.ocps-pc-shopcard{
+  text-align: center;
+  margin-top:20px;
+}
+/**********************************************订单支付***********************/
+.paymentOrder_box{
+  /*width: 60%;*/
+  margin: 0 auto;
+}
+.paymentOrder_topbox{
+  overflow: hidden;
+  border: 1px solid #E1E1E1;
+
+}
+.paymentOrder_topbox_lf{
+  float: left;
+  height: 90px;
+  width: 40%;
+  text-align: center;
+  border-right: 1px solid #ddd;
+  line-height: 90px;
+  margin:25px 0;
+
+}
+.paymentOrder_topbox_lf img{
+  width: 80px;
+  height: 65px;
+
+}
+.paymentOrder_topbox_rt{
+  float: left;
+  width: 60%;
+}
+.paymentOrder_topbox_rt h3{
+  padding-left: 30px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #000000;
+  height: 32px;
+  line-height: 32px;
+  margin-top: 30px;
+}
+.paymentOrder_topbox_rt h6{
+  padding-left:30px ;
+  height: 32px;
+  line-height: 32px;
+}
+.paymentOrder_botbox{
+  background: #F4F9FF;
+}
+.paymentOrder_botbox{
+  margin-bottom: 1rem;
+}
+.paymentOrder_botbox li{
+  padding: 20px 0 10px 0;
+  /* width: 95%; */
+  padding-left: 10%;
+  border-bottom: 1px solid #DDECFE;
+  overflow: hidden;
+}
+.paymentOrder_botbox_lf{
+  float: left;
+  padding-right: 20px;
+  text-align: left;
+}
+.paymentOrder_botbox_ct{
+  float: left;
+  width: 60%;
+  font-size: 14px;
+  height: 30px;
+  line-height: 30px;
+}
+.paymentOrder_botbox_rt{
+  float: left;
+  width: 20%;
+}
+.paymentOrder_botbox_rt>input{
+  margin-top: 8px;
+}
+.input-box .label {
+  color: #333;
+  padding-right: 0;
+  width: 90px;
+  /* text-align: center; */
+  font-size: 0.8rem;
+  padding-left: 15px;
+}
+.ocps-add-card {
+  height: 100px;
+  border-radius: 5px;
+  border: 1px dashed #A6A6A6;
+  text-align: center;
+  width: 90%;
+  margin: 0 auto;
+}
+.add {
+  font-size: 2rem;
+  color: #555555;
+  margin-top: 0.5rem;
+}
+/*转账附卡*/
+.ocpspc-transferCard-box{
+  width: 45%;
+  margin: 0 auto;
+}
+.bg-transferCard {
+  height: 120px;
+}
+.cops-bank-balance {
+  text-align: right;
+}
+.ocpspc-transferCard-box .ocps-transferCard-rt{
+  height: auto;
+}
+.ocpspc-transferCard-box .ocps-transferCard-bg{
+  width: 100%;
+}
+/**********************************************手续费率************************************************/
+.ocps-CommissionRate {
+  margin: 10px auto;
+  width: 50%;
+}
+.ocps-CommissionRate li {
+  border-bottom: 1px solid #D1E2FF;
+  overflow: hidden;
+}
+.ocps-CommissionRate_lf, .ocps-CommissionRate_rt {
+  /* height: 1.75rem; */
+  line-height: 1.75rem;
+   /*text-align: right;*/
+   /*padding-right: 1.3rem;*/
+}
+
+.ocps-CommissionRate_lf{
+  width: 30%;
+  padding-left:20px ;
+  text-align: left;
+}
+.ocps-CommissionRate_rt{
+  width: 50%;
+}
+.ocps-pc-page{
+  text-align: right;
+  padding-right:10px ;
+  margin-top: 10px;
+}
+.ocps-pc-page>span{
+  padding-right:10px ;
+  cursor: pointer;
+}
+/*交易查询*/
+.ocps-data-box{
+  position: relative;
+}
+.ocps-data{
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.ocps-line-height{
+  height: 35px;
+}
+.ocps-data span{
+  display: inline-block;
+  cursor: pointer;
+  padding: 0 10px;
+}

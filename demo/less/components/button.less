@@ -1,0 +1,54 @@
+.ocps-button {
+  position: relative;
+  display: inline-block;
+  padding: 0;
+  background: transparent;
+  background-clip: border-box;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  line-height: 1.875rem;
+  text-decoration: none;
+  color: #0070d2;
+  -webkit-appearance: none;
+  white-space: normal;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  transition: color 0.05s linear, background-color 0.05s linear;
+}
+
+.ocps-button:hover, .ocps-button:focus, .ocps-button:active, .ocps-button:visited {
+  text-decoration: none;
+}
+
+.ocps-button:hover, .ocps-button:focus {
+  color: #005fb2;
+}
+
+.ocps-button:focus {
+  outline: 0;
+  box-shadow: 0 0 3px #0070D2;
+}
+
+.ocps-button:active {
+  color: #00396b;
+}
+
+.ocps-button[disabled] {
+  color: #d8dde6;
+}
+
+.ocps-button + .ocps-button {
+  margin-left: 0.25rem;
+}
+
+a.ocps-button {
+  text-align: center;
+}
+
+a.ocps-button:focus {
+  outline: 0;
+  box-shadow: 0 0 3px #0070D2;
+}

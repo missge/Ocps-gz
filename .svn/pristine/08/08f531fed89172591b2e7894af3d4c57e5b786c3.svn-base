@@ -1,0 +1,59 @@
+/**
+ * @summary Adds a bottom border to an element
+ *
+ * @selector .ocps-border_bottom
+ * @modifier
+ * @group position
+ */
+.ocps-border_bottom,
+.ocps-border--bottom {
+  border-bottom: @sizing-border-xxx-small solid @color-border-default;
+}
+
+/**
+ * @summary Adds a left border to an element
+ *
+ * @selector .ocps-border_left
+ * @modifier
+ * @group position
+ */
+.ocps-border_left,
+.ocps-border--left {
+  border-left: @sizing-border-xxx-small solid @color-border-default;
+}
+
+/**
+ * @summary Adds a right border to an element
+ *
+ * @selector .ocps-border_right
+ * @modifier
+ * @group position
+ */
+.ocps-border_right,
+.ocps-border--right {
+  border-right: @sizing-border-xxx-small solid @color-border-default;
+}
+
+/**
+ * @summary Adds a top border to an element
+ *
+ * @selector .ocps-border_top
+ * @modifier
+ * @group position
+ */
+.ocps-border_top,
+.ocps-border--top {
+  border-top: @sizing-border-xxx-small solid @color-border-default;
+}
+
+/**
+ * @summary Adds a top border to an element
+ *
+ * @selector .ocps-border_around
+ * @modifier
+ * @group position
+ */
+.ocps-border_around,
+.ocps-border--around {
+  border: @sizing-border-xxx-small solid @color-border-default;
+}
